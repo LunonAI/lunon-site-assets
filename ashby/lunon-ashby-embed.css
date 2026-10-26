@@ -447,23 +447,23 @@ html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"
 }
 
 /* Ashby draws checked radios and checkboxes as custom elements with a fixed blue. */
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] {
+html:has(footer[class*="_embedded"]) [data-checked] {
   border-color: #ffffff !important;
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] [class*="_circle"] {
+html:has(footer[class*="_embedded"]) [data-checked] [class*="_circle"] {
   background: #ffffff !important;
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] svg,
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] svg path {
+html:has(footer[class*="_embedded"]) [data-checked] svg,
+html:has(footer[class*="_embedded"]) [data-checked] svg path {
   color: #ffffff !important;
   fill: #ffffff !important;
   stroke: #ffffff;
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked="false"],
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry span[data-disabled]:not([data-checked]) {
+html:has(footer[class*="_embedded"]) [data-checked="false"],
+html:has(footer[class*="_embedded"]) span[data-disabled]:not([data-checked]) {
   border-color: var(--ln-border-hover) !important;
 }
 
