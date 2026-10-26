@@ -1,0 +1,461 @@
+/*
+ * Lunon theme for the Ashby application form, embedded in the lunon.ai Apply drawer.
+ *
+ * Every rule is scoped to the embedded form (Ashby marks its footer `_embedded` only
+ * when the form is framed), so the hosted jobs.ashbyhq.com/lunon pages keep Ashby's
+ * default look. Palette and type match the drawer: navy #0A2236, white text, hairline
+ * borders, Theinhardt.
+ */
+
+@font-face {
+  font-family: "Lunon Theinhardt";
+  src: url("https://framerusercontent.com/assets/SFauBX88CU3uTvxn5QaBjhlrYU.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Lunon Theinhardt";
+  src: url("https://framerusercontent.com/assets/TVNhGkVF7VsTvWA5Y8zJ9wjKDwU.woff2") format("woff2");
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Ashby's design tokens, inverted onto the Lunon navy scale. */
+:root:has(footer[class*="_embedded"]) {
+  --ln-bg: #0a2236;
+  --ln-surface: #0e2a42;
+  --ln-surface-2: #13324d;
+  --ln-text: #ffffff;
+  --ln-text-2: rgba(255, 255, 255, 0.78);
+  --ln-muted: rgba(255, 255, 255, 0.55);
+  --ln-faint: rgba(255, 255, 255, 0.38);
+  --ln-border: rgba(255, 255, 255, 0.2);
+  --ln-border-hover: rgba(255, 255, 255, 0.4);
+  --ln-hairline: rgba(255, 255, 255, 0.1);
+  --ln-error: #ff8f8f;
+
+  --fontFamily: "Lunon Theinhardt", "Theinhardt", "Inter", system-ui, -apple-system, sans-serif;
+  --fontWeightNormal: 400;
+  --fontWeightLightBold: 500;
+  --fontWeightMediumBold: 500;
+  --fontWeightHeavyBold: 500;
+  --fontSizeXsmall: 12px;
+  --fontSizeSmall: 14px;
+  --fontSizeNormal: 16px;
+
+  --borderRadiusContainer: 12px;
+  --borderRadiusControl: 12px;
+  --borderRadiusButton: 100px;
+  --borderWidthBold: 1px;
+  --borderWidthHeavy: 1px;
+
+  --colorAppBackground: var(--ln-bg);
+  --colorNeutral000: var(--ln-bg);
+  --colorNeutral100: var(--ln-surface);
+  --colorNeutral200: var(--ln-surface-2);
+  --colorNeutral300: var(--ln-hairline);
+  --colorNeutral400: var(--ln-border);
+  --colorNeutral500: var(--ln-faint);
+  --colorNeutral600: var(--ln-muted);
+  --colorNeutral700: var(--ln-text-2);
+  --colorNeutral800: var(--ln-text);
+  --colorNeutral000A: rgba(255, 255, 255, 0);
+  --colorNeutral100A: rgba(255, 255, 255, 0.03);
+  --colorNeutral200A: rgba(255, 255, 255, 0.06);
+  --colorNeutral300A: rgba(255, 255, 255, 0.1);
+  --colorNeutral400A: rgba(255, 255, 255, 0.2);
+  --colorNeutral500A: rgba(255, 255, 255, 0.38);
+  --colorNeutral600A: rgba(255, 255, 255, 0.55);
+  --colorNeutral700A: rgba(255, 255, 255, 0.78);
+  --colorNeutral800A: #ffffff;
+  --colorNeutral100Transparent: rgba(10, 34, 54, 0);
+  --colorNeutral600Transparent: rgba(255, 255, 255, 0.1);
+
+  --colorPrimary600: #ffffff;
+  --colorPrimary900: #ffffff;
+  --colorPrimary500A: rgba(255, 255, 255, 0.12);
+  --colorSecondary900: rgba(255, 255, 255, 0.5);
+  --colorShadowPrimaryXLight: rgba(255, 255, 255, 0.06);
+  --colorShadowPrimaryLight: rgba(255, 255, 255, 0.12);
+  --colorNeutralShadow: rgba(0, 0, 0, 0.45);
+  --colorPrimaryShadow: rgba(0, 0, 0, 0.45);
+
+  --colorNegative600: var(--ln-error);
+  --colorNegative800: var(--ln-error);
+  --colorNegative900: var(--ln-error);
+  --colorNegative200: rgba(255, 143, 143, 0.12);
+  --colorPositive600: #7ee2a8;
+  --colorPositive800: #7ee2a8;
+  --colorPositive200: rgba(126, 226, 168, 0.12);
+  --colorInfo900: #ffffff;
+  --colorInfo1000: #ffffff;
+  --colorInfo1100: #ffffff;
+}
+
+html:has(footer[class*="_embedded"]),
+html:has(footer[class*="_embedded"]) body,
+html:has(footer[class*="_embedded"]) #root {
+  background: var(--ln-bg);
+  color: var(--ln-text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html:has(footer[class*="_embedded"]) #root {
+  padding: 2px;
+}
+
+html:has(footer[class*="_embedded"]) ::selection {
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+/* Form shell */
+html:has(footer[class*="_embedded"]) .ashby-application-form-container {
+  background: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-section-header {
+  border-color: var(--ln-hairline);
+  margin-bottom: 32px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-section-header-title {
+  color: var(--ln-text);
+  font-weight: 400;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-section-header-description,
+html:has(footer[class*="_embedded"]) .ashby-application-form-question-description {
+  color: var(--ln-muted);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-question-description {
+  margin-top: -6px;
+  margin-bottom: 12px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry {
+  margin-bottom: 28px;
+}
+
+/* Question labels: plain white sentences, the required mark as a quiet asterisk. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-question-title {
+  font-size: 14px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--ln-text);
+  margin-bottom: 10px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-question-title::after {
+  color: var(--ln-muted);
+  margin-left: 3px;
+}
+
+/* Text inputs, textareas, autocomplete and selects share one control style. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="text"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="email"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="tel"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="url"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select {
+  font-family: var(--fontFamily);
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ln-text);
+  background-color: transparent;
+  border: 1px solid var(--ln-border);
+  border-radius: 12px;
+  box-shadow: none;
+  transition: border-color 0.15s ease-out;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="text"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="email"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="tel"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="url"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"] {
+  min-height: 44px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea {
+  min-height: 132px;
+  line-height: 1.45;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select option {
+  background: var(--ln-bg);
+  color: var(--ln-text);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input::placeholder,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea::placeholder {
+  color: var(--ln-faint);
+  opacity: 1;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:hover {
+  border-color: var(--ln-border-hover);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:focus {
+  outline: none;
+  border-color: var(--ln-text);
+  box-shadow: none;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[aria-invalid="true"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea[aria-invalid="true"] {
+  border-color: var(--ln-error);
+}
+
+/* Autocomplete (location, school): the chevron and the results menu. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-autocomplete svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-dropdown svg {
+  fill: var(--ln-muted);
+  color: var(--ln-muted);
+}
+
+html:has(footer[class*="_embedded"]) [role="listbox"],
+html:has(footer[class*="_embedded"]) [role="menu"] {
+  background: var(--ln-surface) !important;
+  border: 1px solid var(--ln-border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+  color: var(--ln-text);
+}
+
+html:has(footer[class*="_embedded"]) [role="option"] {
+  color: var(--ln-text-2);
+}
+
+html:has(footer[class*="_embedded"]) [role="option"][aria-selected="true"],
+html:has(footer[class*="_embedded"]) [role="option"]:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: var(--ln-text);
+}
+
+/* Secondary buttons: autofill, file upload, add education. Outlined pills, like the site's close button. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone button,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add {
+  font-family: var(--fontFamily);
+  background: transparent !important;
+  color: var(--ln-text) !important;
+  border: 1px solid var(--ln-border) !important;
+  border-radius: 100px;
+  box-shadow: none !important;
+  transition: border-color 0.15s ease-out;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone button:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add:hover {
+  border-color: var(--ln-text) !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add svg {
+  fill: currentColor;
+  color: currentColor;
+}
+
+/* Autofill from resume: a quiet bordered card instead of Ashby's grey slab. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane {
+  margin-top: 0;
+  margin-bottom: 32px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-root,
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-base-layer,
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-drag-layer,
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-pending-layer:not([data-highlight]) {
+  background: var(--ln-bg);
+  border-color: var(--ln-border);
+  border-radius: 12px;
+  box-shadow: none;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-pending-layer[data-highlight="positive"] {
+  background: rgba(126, 226, 168, 0.1);
+  color: var(--ln-text);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-title {
+  color: var(--ln-text);
+  font-weight: 400;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-description {
+  color: var(--ln-muted);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-base-layer svg {
+  fill: var(--ln-text);
+  color: var(--ln-text);
+}
+
+/* Resume dropzone */
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone {
+  background: transparent;
+  border-color: var(--ln-border);
+  border-radius: 12px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone-instructions {
+  color: var(--ln-muted);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file ~ div p,
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone p {
+  background: none;
+  color: var(--ln-text-2);
+}
+
+/* Radio groups */
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-radio-group-option-label {
+  color: var(--ln-text-2);
+  font-size: 15px;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-radio-group-option input[type="radio"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="checkbox"] {
+  accent-color: #ffffff;
+  border-color: var(--ln-border-hover);
+  background-color: transparent;
+}
+
+/* Yes / No toggles become a pair of pills. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option {
+  font-family: var(--fontFamily);
+  background: transparent;
+  color: var(--ln-text-2);
+  border: 1px solid var(--ln-border);
+  box-shadow: none;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option:hover {
+  border-color: var(--ln-border-hover);
+  color: var(--ln-text);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option[class*="_active"] {
+  background: #ffffff;
+  border-color: #ffffff;
+  color: var(--ln-bg);
+}
+
+/* Education entries */
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-entry {
+  border-color: var(--ln-hairline);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-entry-header {
+  color: var(--ln-muted);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-entry-delete {
+  color: var(--ln-muted) !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-entry-delete:hover {
+  color: var(--ln-error) !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-entry-delete svg {
+  fill: currentColor;
+}
+
+/* Submit: the site's white pill with navy uppercase label. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button {
+  margin-top: 36px;
+  min-height: 44px;
+  background: #ffffff !important;
+  color: var(--ln-bg) !important;
+  border: none !important;
+  border-radius: 100px;
+  box-shadow: none !important;
+  font-family: var(--fontFamily);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: opacity 0.15s ease-out;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button:hover {
+  opacity: 0.88;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button .loadingSvg path {
+  fill: currentColor !important;
+  stroke: currentColor;
+}
+
+/* Success and failure states */
+html:has(footer[class*="_embedded"]) .ashby-application-form-success-container {
+  background: none;
+  color: var(--ln-text-2);
+  margin: 0;
+  padding: 8px 0 0;
+  text-align: left;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-success-container h2,
+html:has(footer[class*="_embedded"]) .ashby-application-form-success-container h3 {
+  color: var(--ln-text);
+  font-weight: 400;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-failure-container {
+  margin: 0;
+}
+
+html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] {
+  background: rgba(255, 143, 143, 0.1);
+  border-color: rgba(255, 143, 143, 0.4);
+  color: var(--ln-text);
+}
+
+/* Focus rings for keyboard users */
+html:has(footer[class*="_embedded"]) button:focus-visible,
+html:has(footer[class*="_embedded"]) input[type="radio"]:focus-visible,
+html:has(footer[class*="_embedded"]) input[type="checkbox"]:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline-offset: 2px;
+}
+
+/* reCAPTCHA notice stays (Google requires it when the badge is hidden), set small and muted. */
+html:has(footer[class*="_embedded"]) p[class*="_recaptchaLegal"] {
+  color: var(--ln-faint);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+html:has(footer[class*="_embedded"]) p[class*="_recaptchaLegal"] a {
+  color: var(--ln-muted);
+}
+
+/* The drawer carries the Lunon brand; drop Ashby's embedded footer. */
+html:has(footer[class*="_embedded"]) #root footer[class*="_embedded"] {
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
