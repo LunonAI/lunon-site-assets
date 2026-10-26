@@ -427,9 +427,62 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-failure-container {
 }
 
 html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] {
-  background: rgba(255, 143, 143, 0.1);
-  border-color: rgba(255, 143, 143, 0.4);
+  background: rgba(255, 143, 143, 0.06);
+  border: 1px solid rgba(255, 143, 143, 0.35);
+  border-radius: 12px;
+  box-shadow: none;
   color: var(--ln-text);
+}
+
+html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] h2,
+html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] h3 {
+  color: var(--ln-error);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] a {
+  color: var(--ln-text);
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Ashby draws checked radios and checkboxes as custom elements with a fixed blue. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] {
+  border-color: #ffffff !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] [class*="_circle"] {
+  background: #ffffff !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] svg,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked] svg path {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry [data-checked="false"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry span[data-disabled]:not([data-checked]) {
+  border-color: var(--ln-border-hover) !important;
+}
+
+/* Autocomplete menus and focused controls: no Ashby blue rings. */
+html:has(footer[class*="_embedded"]) [class*="_floatingContainer"],
+html:has(footer[class*="_embedded"]) [role="listbox"] {
+  border-color: var(--ln-border) !important;
+  outline: none !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry *:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry *:focus-within {
+  outline-color: rgba(255, 255, 255, 0.6);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:focus {
+  outline: none;
 }
 
 /* Focus rings for keyboard users */
