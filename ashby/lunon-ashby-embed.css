@@ -1,6 +1,10 @@
 /*
  * Lunon theme for the Ashby application form, embedded in the lunon.ai Apply drawer.
  *
+ * Sizes follow Linear's embedded form (14px labels, 13px help, 42px controls, 32px
+ * field rhythm, 6px control radius inside an 8px card); text in controls is 16px
+ * on phones so iOS doesn't zoom on focus.
+ *
  * Every rule is scoped to the embedded form (Ashby marks its footer `_embedded` only
  * when the form is framed), so the hosted jobs.ashbyhq.com/lunon pages keep Ashby's
  * default look. Palette and type match the drawer: navy #0A2236, white text, hairline
@@ -31,8 +35,8 @@
   --ln-text-2: rgba(255, 255, 255, 0.78);
   --ln-muted: rgba(255, 255, 255, 0.55);
   --ln-faint: rgba(255, 255, 255, 0.38);
-  --ln-border: rgba(255, 255, 255, 0.2);
-  --ln-border-hover: rgba(255, 255, 255, 0.4);
+  --ln-border: rgba(255, 255, 255, 0.14);
+  --ln-border-hover: rgba(255, 255, 255, 0.32);
   --ln-hairline: rgba(255, 255, 255, 0.1);
   --ln-error: #ff8f8f;
 
@@ -42,11 +46,12 @@
   --fontWeightMediumBold: 500;
   --fontWeightHeavyBold: 500;
   --fontSizeXsmall: 12px;
-  --fontSizeSmall: 14px;
-  --fontSizeNormal: 16px;
+  --fontSizeSmall: 13px;
+  --fontSizeNormal: 14px;
+  --fontSizeLarge: 16px;
 
-  --borderRadiusContainer: 12px;
-  --borderRadiusControl: 12px;
+  --borderRadiusContainer: 6px;
+  --borderRadiusControl: 6px;
   --borderRadiusButton: 100px;
   --borderWidthBold: 1px;
   --borderWidthHeavy: 1px;
@@ -135,12 +140,14 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-question-descriptio
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-question-description {
-  margin-top: -6px;
+  font-size: 13px;
+  line-height: 1.45;
+  margin-top: -8px;
   margin-bottom: 12px;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry {
-  margin-bottom: 28px;
+  margin-bottom: 32px;
 }
 
 /* Question labels: plain white sentences, the required mark as a quiet asterisk. */
@@ -149,7 +156,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-question-title {
   line-height: 1.35;
   font-weight: 400;
   color: var(--ln-text);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-question-title::after {
@@ -166,12 +173,12 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[t
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea,
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select {
   font-family: var(--fontFamily);
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--ln-text);
   background-color: transparent;
   border: 1px solid var(--ln-border);
-  border-radius: 12px;
+  border-radius: 6px;
   box-shadow: none;
   transition: border-color 0.15s ease-out;
 }
@@ -181,12 +188,22 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[t
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="tel"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="url"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"] {
-  min-height: 44px;
+  min-height: 42px;
+  padding: 12px;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea {
-  min-height: 132px;
+  min-height: 120px;
+  padding: 12px;
   line-height: 1.45;
+}
+
+@media (max-width: 767.98px) {
+  html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input,
+  html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea,
+  html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select {
+    font-size: 16px;
+  }
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select option {
@@ -230,7 +247,7 @@ html:has(footer[class*="_embedded"]) [role="listbox"],
 html:has(footer[class*="_embedded"]) [role="menu"] {
   background: var(--ln-surface) !important;
   border: 1px solid var(--ln-border) !important;
-  border-radius: 12px !important;
+  border-radius: 6px !important;
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
   color: var(--ln-text);
 }
@@ -286,7 +303,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-drag
 html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-pending-layer:not([data-highlight]) {
   background: var(--ln-bg);
   border-color: var(--ln-border);
-  border-radius: 12px;
+  border-radius: 6px;
   box-shadow: none;
 }
 
@@ -313,7 +330,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-base
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone {
   background: transparent;
   border-color: var(--ln-border);
-  border-radius: 12px;
+  border-radius: 6px;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone-instructions {
@@ -329,7 +346,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone
 /* Radio groups */
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-radio-group-option-label {
   color: var(--ln-text-2);
-  font-size: 15px;
+  font-size: 14px;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-radio-group-option input[type="radio"],
@@ -382,8 +399,9 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-ent
 
 /* Submit: the site's white pill with navy uppercase label. */
 html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button {
-  margin-top: 36px;
-  min-height: 44px;
+  margin-top: 40px;
+  margin-bottom: 4px;
+  min-height: 46px;
   background: #ffffff !important;
   color: var(--ln-bg) !important;
   border: none !important;
@@ -429,7 +447,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-failure-container {
 html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"] {
   background: rgba(255, 143, 143, 0.06);
   border: 1px solid rgba(255, 143, 143, 0.35);
-  border-radius: 12px;
+  border-radius: 6px;
   box-shadow: none;
   color: var(--ln-text);
 }
