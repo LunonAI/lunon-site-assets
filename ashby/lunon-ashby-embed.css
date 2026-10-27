@@ -131,7 +131,9 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-section-header {
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-section-header-title {
   color: var(--ln-text);
-  font-weight: 400;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-section-header-description,
@@ -170,6 +172,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[t
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="tel"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="url"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input.ashby-application-form-input-autocomplete,
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea,
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select {
   font-family: var(--fontFamily);
@@ -187,7 +190,8 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[t
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="email"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="tel"],
 html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="url"],
-html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"] {
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input[type="number"],
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input.ashby-application-form-input-autocomplete {
   min-height: 42px;
   padding: 12px;
 }
