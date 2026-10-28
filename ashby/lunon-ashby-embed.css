@@ -370,7 +370,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option 
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option:hover {
   border-color: var(--ln-accent);
-  color: var(--ln-accent-text);
+  color: var(--ln-text);
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option[class*="_active"] {
@@ -534,12 +534,12 @@ html:has(footer[class*="_embedded"]) #root footer[class*="_embedded"] {
   padding: 0;
 }
 
-/* Like Linear: the autofill button and its wand carry the accent (outlined, filled on
- * hover); the resume dropzone button stays neutral. */
+/* Like Linear: the autofill button and its wand carry the accent (blue outline, filled on
+ * hover); text inside buttons stays white for contrast. The resume dropzone button stays neutral. */
 html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button {
   font-family: var(--fontFamily);
   background: transparent !important;
-  color: var(--ln-accent-text) !important;
+  color: var(--ln-text) !important;
   border: 1px solid var(--ln-accent) !important;
   border-radius: 100px;
   box-shadow: none !important;
