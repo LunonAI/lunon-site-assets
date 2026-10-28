@@ -8,8 +8,10 @@
  * Every rule is scoped to the embedded form (Ashby marks its footer `_embedded` only
  * when the form is framed), so the hosted jobs.ashbyhq.com/lunon pages keep Ashby's
  * default look. Palette and type match the drawer: navy #0A2236, white text, hairline
- * borders, Theinhardt, with Lunon blue #2F6BFF as the one accent (required marks,
- * submit, checked controls, focus, links), matching the brand color set in Ashby.
+ * borders, Theinhardt, with Lunon blue #2F6BFF as the one accent, placed where Linear
+ * places theirs: required marks, the autofill button and wand, field outlines on hover
+ * and focus, yes/no hover and selection, checked controls, and submit. Keyboard focus
+ * rings stay white, as Linear's do.
  */
 
 @font-face {
@@ -42,6 +44,7 @@
   --ln-error: #ff8f8f;
   --ln-accent: #2f6bff;
   --ln-accent-hover: #4a7fff;
+  --ln-accent-text: #7aa2ff;
 
   --fontFamily: "Lunon Theinhardt", "Theinhardt", "Inter", system-ui, -apple-system, sans-serif;
   --fontWeightNormal: 400;
@@ -82,7 +85,7 @@
   --colorNeutral600Transparent: rgba(255, 255, 255, 0.1);
 
   --colorPrimary600: var(--ln-accent);
-  --colorPrimary900: var(--ln-accent);
+  --colorPrimary900: var(--ln-accent-text);
   --colorPrimary500A: rgba(255, 255, 255, 0.12);
   --colorSecondary900: rgba(255, 255, 255, 0.5);
   --colorShadowPrimaryXLight: rgba(255, 255, 255, 0.06);
@@ -166,7 +169,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-question-title {
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-question-title::after {
   color: var(--ln-accent);
-  margin-left: 3px;
+  margin-left: 2px;
 }
 
 /* Text inputs, textareas, autocomplete and selects share one control style. */
@@ -270,7 +273,6 @@ html:has(footer[class*="_embedded"]) [role="option"]:hover {
 }
 
 /* Secondary buttons: autofill, file upload, add education. Outlined pills, like the site's close button. */
-html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone button,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add {
@@ -283,14 +285,12 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add
   transition: border-color 0.15s ease-out;
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button:hover,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button:hover,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone button:hover,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add:hover {
   border-color: var(--ln-text) !important;
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button svg,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file button svg,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone svg,
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-add svg {
@@ -328,10 +328,6 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-desc
   color: var(--ln-muted);
 }
 
-html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-base-layer svg {
-  fill: var(--ln-text);
-  color: var(--ln-text);
-}
 
 /* Resume dropzone */
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-file-dropzone {
@@ -373,8 +369,8 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option 
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option:hover {
-  border-color: var(--ln-border-hover);
-  color: var(--ln-text);
+  border-color: var(--ln-accent);
+  color: var(--ln-accent-text);
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option[class*="_active"] {
@@ -514,7 +510,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:
 html:has(footer[class*="_embedded"]) button:focus-visible,
 html:has(footer[class*="_embedded"]) input[type="radio"]:focus-visible,
 html:has(footer[class*="_embedded"]) input[type="checkbox"]:focus-visible {
-  outline: 2px solid var(--ln-accent);
+  outline: 2px solid rgba(255, 255, 255, 0.6);
   outline-offset: 2px;
 }
 
@@ -536,4 +532,56 @@ html:has(footer[class*="_embedded"]) #root footer[class*="_embedded"] {
   overflow: hidden;
   margin: 0;
   padding: 0;
+}
+
+/* Like Linear: the autofill button and its wand carry the accent (outlined, filled on
+ * hover); the resume dropzone button stays neutral. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button {
+  font-family: var(--fontFamily);
+  background: transparent !important;
+  color: var(--ln-accent-text) !important;
+  border: 1px solid var(--ln-accent) !important;
+  border-radius: 100px;
+  box-shadow: none !important;
+  transition: background-color 0.15s ease-out, color 0.15s ease-out;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button:hover {
+  background: var(--ln-accent) !important;
+  color: #ffffff !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-pane button svg {
+  fill: currentColor;
+  color: currentColor;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-icon,
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-icon path {
+  fill: var(--ln-accent-text) !important;
+  color: var(--ln-accent-text);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-autofill-input-description {
+  color: var(--ln-text-2);
+}
+
+/* Like Linear: text fields take the accent outline on hover and focus. */
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:hover,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:focus {
+  border-color: var(--ln-accent);
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry input:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry textarea:focus,
+html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:focus {
+  box-shadow: 0 0 0 3px rgba(47, 107, 255, 0.18) !important;
+}
+
+html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option[class*="_active"]:hover {
+  color: #ffffff;
 }
