@@ -8,7 +8,8 @@
  * Every rule is scoped to the embedded form (Ashby marks its footer `_embedded` only
  * when the form is framed), so the hosted jobs.ashbyhq.com/lunon pages keep Ashby's
  * default look. Palette and type match the drawer: navy #0A2236, white text, hairline
- * borders, Theinhardt.
+ * borders, Theinhardt, with Lunon blue #2F6BFF as the one accent (required marks,
+ * submit, checked controls, focus, links), matching the brand color set in Ashby.
  */
 
 @font-face {
@@ -39,6 +40,8 @@
   --ln-border-hover: rgba(255, 255, 255, 0.32);
   --ln-hairline: rgba(255, 255, 255, 0.1);
   --ln-error: #ff8f8f;
+  --ln-accent: #2f6bff;
+  --ln-accent-hover: #4a7fff;
 
   --fontFamily: "Lunon Theinhardt", "Theinhardt", "Inter", system-ui, -apple-system, sans-serif;
   --fontWeightNormal: 400;
@@ -78,8 +81,8 @@
   --colorNeutral100Transparent: rgba(10, 34, 54, 0);
   --colorNeutral600Transparent: rgba(255, 255, 255, 0.1);
 
-  --colorPrimary600: #ffffff;
-  --colorPrimary900: #ffffff;
+  --colorPrimary600: var(--ln-accent);
+  --colorPrimary900: var(--ln-accent);
   --colorPrimary500A: rgba(255, 255, 255, 0.12);
   --colorSecondary900: rgba(255, 255, 255, 0.5);
   --colorShadowPrimaryXLight: rgba(255, 255, 255, 0.06);
@@ -152,7 +155,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry {
   margin-bottom: 32px;
 }
 
-/* Question labels: plain white sentences, the required mark as a quiet asterisk. */
+/* Question labels: plain white sentences, the required mark in Lunon blue. */
 html:has(footer[class*="_embedded"]) .ashby-application-form-question-title {
   font-size: 14px;
   line-height: 1.35;
@@ -162,7 +165,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-question-title {
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-question-title::after {
-  color: var(--ln-muted);
+  color: var(--ln-accent);
   margin-left: 3px;
 }
 
@@ -375,9 +378,9 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option:
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-input-yesno-option[class*="_active"] {
-  background: #ffffff;
-  border-color: #ffffff;
-  color: var(--ln-bg);
+  background: var(--ln-accent);
+  border-color: var(--ln-accent);
+  color: #ffffff;
 }
 
 /* Education entries */
@@ -401,13 +404,13 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-input-education-ent
   fill: currentColor;
 }
 
-/* Submit: the site's white pill with navy uppercase label. */
+/* Submit: a Lunon blue pill with white uppercase label. */
 html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button {
   margin-top: 40px;
   margin-bottom: 4px;
   min-height: 46px;
-  background: #ffffff !important;
-  color: var(--ln-bg) !important;
+  background: var(--ln-accent) !important;
+  color: #ffffff !important;
   border: none !important;
   border-radius: 100px;
   box-shadow: none !important;
@@ -416,11 +419,11 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button {
   font-weight: 400;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  transition: opacity 0.15s ease-out;
+  transition: background-color 0.15s ease-out;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button:hover {
-  opacity: 0.88;
+  background: var(--ln-accent-hover) !important;
 }
 
 html:has(footer[class*="_embedded"]) .ashby-application-form-submit-button svg,
@@ -470,18 +473,18 @@ html:has(footer[class*="_embedded"]) div[role="alert"][data-highlight="negative"
 
 /* Ashby draws checked radios and checkboxes as custom elements with a fixed blue. */
 html:has(footer[class*="_embedded"]) [data-checked] {
-  border-color: #ffffff !important;
+  border-color: var(--ln-accent) !important;
 }
 
 html:has(footer[class*="_embedded"]) [data-checked] [class*="_circle"] {
-  background: #ffffff !important;
+  background: var(--ln-accent) !important;
 }
 
 html:has(footer[class*="_embedded"]) [data-checked] svg,
 html:has(footer[class*="_embedded"]) [data-checked] svg path {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  stroke: #ffffff;
+  color: var(--ln-accent) !important;
+  fill: var(--ln-accent) !important;
+  stroke: var(--ln-accent);
 }
 
 html:has(footer[class*="_embedded"]) [data-checked="false"],
@@ -511,7 +514,7 @@ html:has(footer[class*="_embedded"]) .ashby-application-form-field-entry select:
 html:has(footer[class*="_embedded"]) button:focus-visible,
 html:has(footer[class*="_embedded"]) input[type="radio"]:focus-visible,
 html:has(footer[class*="_embedded"]) input[type="checkbox"]:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
+  outline: 2px solid var(--ln-accent);
   outline-offset: 2px;
 }
 
